@@ -1,0 +1,85 @@
+set nocompatible              " required
+filetype off                  " required
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'ervandew/supertab' " use tab for completion
+Plugin 'preservim/nerdcommenter'
+Plugin 'preservim/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plugin 'mg979/vim-visual-multi'
+Plugin 'dense-analysis/ale' " ALE
+Plugin 'puremourning/vimspector'
+Plugin 'vim-test/vim-test'
+
+call vundle#end()            " required
+
+
+let local_file = substitute(resolve($MYVIMRC), 'vimrc.txt$', 'local.vim', '')
+execute 'source ' . local_file
+
+"For vim-airline
+let g:airline_theme='badwolf'
+
+
+set encoding=utf-8
+
+syntax on
+
+set colorcolumn=120
+set number
+set relativenumber
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+
+
+"For pymode
+let g:pymode_indent = 1
+let g:pymode_options_max_line_length = 120
+
+
+" ALE
+let g:ale_linters = {'python': ['pylsp']}
+let g:ale_max_line_length = 120
+
+:map gd :ALEGoToDefinition<CR>
+:map gl :ALENext<CR>
+
+
+"vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+
+"set mouse=a
+:map FL mn/_pytest<CR>xwxde`n
+
+:vmap <C-i>' c''<ESC>P
+:vmap <C-i>" c""<ESC>P
+:vmap <C-i>( c()<ESC>P
+:vmap <C-i>[ c[]<ESC>P
+:vmap <C-i>{ c{}<ESC>P
+:vmap <C-i>< c<><ESC>P
+:map cx{ ma%r}`ar{
+:map cx[ ma%r]`ar[
+:map cx' ma%r'`ar'
+:map cx" ma%r"`ar"
+:map cx( ma%r)`ar(
+
+:command Lxml :%!xmlstarlet fo
+:command Ljson :%!json_pp
+
+:command Srn :set relativenumber
+:command Snrn :set norelativenumber
