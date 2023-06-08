@@ -57,6 +57,7 @@ let g:ale_linters = {'python': ['pylsp']}
 let g:ale_max_line_length = 120
 
 :map gd :ALEGoToDefinition<CR>
+:map gr :ALEFindReference<CR>
 :map gl :ALENext<CR>
 
 
