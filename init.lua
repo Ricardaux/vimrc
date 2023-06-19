@@ -68,9 +68,13 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'tpope/vim-dispatch',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+
+  'vim-test/vim-test',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -539,3 +543,15 @@ cmp.setup {
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+-- vim-test
+
+vim.g['test#strategy'] = 'dispatch'
+vim.keymap.set('n', '<leader>of', 'gf<C-W>o', { buffer = bufnr, desc = '[O]pen [F]ile from quickfixlist' })
+vim.keymap.set('n', '<leader>tn', ':TestNearest<CR><leader>oq', { buffer = bufnr, desc = '[T]est [N]earest' })
+vim.keymap.set('n', '<leader>tc', ':TestClass<CR>', { buffer = bufnr, desc = '[T]est [C]lass' })
+vim.keymap.set('n', '<leader>tf', ':TestFile<CR>', { buffer = bufnr, desc = '[T]est [F]ile' })
+vim.keymap.set('n', '<leader>ts', ':TestSuite<CR>', { buffer = bufnr, desc = '[T]est [S]uite' })
+vim.keymap.set('n', '<leader>tl', ':TestLast<CR>', { buffer = bufnr, desc = '[T]est [L]ast' })
+vim.keymap.set('n', '<leader>tv', ':TestVisit<CR>', { buffer = bufnr, desc = '[T]est [V]isit' })
+-- Fix this monstruosity
+vim.keymap.set('n', '<leader>oq', '<C-W><C-W>10<C-W>+', { buffer = bufnr, desc = '[T]est [V]isit' })
