@@ -136,8 +136,8 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
-        vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
+        vim.keymap.set('n', '<leader>hp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Go to [P]revious [H]unk' })
+        vim.keymap.set('n', '<leader>hn', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Go to [N]ext [H]unk' })
         vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
         vim.keymap.set('n', '<leader>hs', require('gitsigns').stage_hunk,  {buffer = bufnr, desc = '[H]unk [S]tage' })
         vim.keymap.set('n', '<leader>hr', require('gitsigns').reset_hunk,  {buffer = bufnr, desc = '[H]unk [R]eset' })
@@ -547,7 +547,7 @@ cmp.setup {
 
 vim.g['test#strategy'] = 'dispatch'
 vim.keymap.set('n', '<leader>of', 'gf<C-W>o', { buffer = bufnr, desc = '[O]pen [F]ile from quickfixlist' })
-vim.keymap.set('n', '<leader>tn', ':TestNearest<CR><leader>oq', { buffer = bufnr, desc = '[T]est [N]earest' })
+vim.keymap.set('n', '<leader>tn', ':TestNearest<CR>', { buffer = bufnr, desc = '[T]est [N]earest' })
 vim.keymap.set('n', '<leader>tc', ':TestClass<CR>', { buffer = bufnr, desc = '[T]est [C]lass' })
 vim.keymap.set('n', '<leader>tf', ':TestFile<CR>', { buffer = bufnr, desc = '[T]est [F]ile' })
 vim.keymap.set('n', '<leader>ts', ':TestSuite<CR>', { buffer = bufnr, desc = '[T]est [S]uite' })
