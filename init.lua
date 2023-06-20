@@ -129,8 +129,8 @@ require('lazy').setup({
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
+        add = { text = '|' },
+        change = { text = '|' },
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
@@ -566,3 +566,10 @@ vim.keymap.set('n', 'gm', function ()
   vim.cmd("normal! f(h")
   vim.lsp.buf.definition()
 end)
+
+-- Experimental keymap
+
+vim.cmd([[command! -nargs=* -complete=customlist,vim_fugitive#completion Gsw Git switch <args>]])
+vim.cmd([[command! -nargs=* -complete=customlist,vim_fugitive#gitcommandcompletion Gc Git commit <args>]])
+vim.cmd([[command! -nargs=* -complete=customlist,vim_fugitive#gitcommandcompletion Gl Git pull <args>]])
+

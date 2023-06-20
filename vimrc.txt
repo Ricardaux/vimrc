@@ -23,6 +23,7 @@ Plugin 'mg979/vim-visual-multi'
 Plugin 'dense-analysis/ale' " ALE
 Plugin 'puremourning/vimspector'
 Plugin 'vim-test/vim-test'
+Plugin 'tpope/vim-dispatch'
 
 call vundle#end()            " required
 
@@ -50,6 +51,10 @@ set autoindent
 "For pymode
 let g:pymode_indent = 1
 let g:pymode_options_max_line_length = 120
+let g:pymode_rope = 1
+let g:pymode_rope_autoimport=1
+let g:pymode_rope_autoimport_modules = ['__future__', 'builtins', '_io', 'abc', 'collections', 'copy', 'math', 're', 'sys', 'time', 'typing', 'functools', 'operator', 'random', 'json', 'os', 'socket', 'subprocess', 'warnings', 'yaml', 'numpy', 'pandas', 'scipy', 'sklearn', 'matplotlib', 'seaborn']
+
 
 
 " ALE
@@ -63,6 +68,13 @@ let g:ale_max_line_length = 120
 
 "vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy' ]
+
+" Vim-test
+let test#python#runner = 'pytest'
+let g:test#strategy = "dispatch"
+let test#vim#term_position = "vert"
+
 
 "set mouse=a
 :map FL mn/_pytest<CR>xwxde`n
@@ -78,9 +90,24 @@ let g:vimspector_enable_mappings = 'HUMAN'
 :map cx' ma%r'`ar'
 :map cx" ma%r"`ar"
 :map cx( ma%r)`ar(
+:map di<space> F<space>dt<space>
+:map ci<space> F<space>ct<space>
 
 :command Lxml :%!xmlstarlet fo
 :command Ljson :%!json_pp
 
 :command Srn :set relativenumber
 :command Snrn :set norelativenumber
+
+function! CreateClass()
+    " Récupérer le nom du fichier
+    let l:filename = expand('%:t:r')
+    " Convertir en camel case
+    let l:class_name = substitute(l:filename, '_\(\w\)', '\u\1', 'g')
+    let l:class_name = substitute(l:class_name, '\(^.\)', '\u\0', '')
+    " Créer la classe
+    execute "normal! iclass " . l:class_name . ":\r\tdef __init__(self):\r\tpass\r"
+endfunction
+
+command! CreateClass :call CreateClass()
+
