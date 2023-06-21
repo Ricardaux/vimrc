@@ -557,8 +557,8 @@ vim.keymap.set('n', '<leader>tv', ':TestVisit<CR>', { buffer = bufnr, desc = '[T
 vim.keymap.set('n', '<leader>oq', '<C-W><C-W>10<C-W>+', { buffer = bufnr, desc = '[T]est [V]isit' })
 vim.keymap.set('n', 'gm', function ()
   local count = tonumber(vim.v.count)
-  vim.cmd("normal! 0")
   if count then
+    vim.cmd("normal! 0")
     for _ = 1, count do
       vim.cmd("normal! j")
     end
