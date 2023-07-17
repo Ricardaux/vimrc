@@ -211,21 +211,46 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  -- DAP
+  'mfussenegger/nvim-dap',
+  'mfussenegger/nvim-dap-python',
+  'rcarriga/nvim-dap-ui'
 
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
-  -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  --{ import = 'custom.plugins' },
 }, {})
-
+require('dap-python').test_runner = 'pytest'
+require('dap-python').setup('/Users/rlavainne/.pyenv/shims/python3')
+table.insert(require('dap').configurations.python, {
+  type = 'python',
+  request = 'launch',
+  name = 'Run connector',
+  program = '${file}',
+  args = {'run'}
+  -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
+})
+vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end, { desc = '[D]ebug [C]ontinue' })
+vim.keymap.set('n', '<leader>dn', function() require('dap').step_over() end, { desc = '[D]ebug Step [N]ext' })
+vim.keymap.set('n', '<leader>do', function() require('dap').step_over() end, { desc = '[D]ebug Step [O]ut' })
+vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end, { desc = '[D]ebug Step [I]nto' })
+vim.keymap.set('n', '<leader>dp', function() require('dap').step_back() end, { desc = '[D]ebug [P]revious Step' })
+vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() end, { desc = '[D]ebug Toggle [B]reakpoint' })
+vim.keymap.set('n', '<leader>dr', function() require('dap').restart() end, { desc = '[D]ebug [R]estart' })
+vim.keymap.set('n', '<leader>de', function() require('dap').terminate() end, { desc = '[D]ebug [E]nd' })
+vim.keymap.set('n', '<leader>dt', function() require('dap-python').test_method() end, { desc = '[D]ebug [T]est' })
+vim.keymap.set('n', '<leader>df', function() require('dap-python').test_class() end, { desc = '[D]ebug Class' })
+require("dapui").setup({
+    layouts = { {
+        elements = { {
+            id = "scopes",
+            size = 0.5
+          },
+          {
+            id = "stacks",
+            size = 0.5
+          } },
+        position = "left",
+        size = 40
+      } }})
+vim.keymap.set('n', '<leader>du', function() require('dapui').open() end, { desc = '[D]ebug [U]i' })
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
