@@ -49,3 +49,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+vim.o.wildmenu = true
+vim.o.wildmode='longest:full,full'
