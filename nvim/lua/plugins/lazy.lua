@@ -49,7 +49,10 @@ require('lazy').setup({
       'folke/neodev.nvim',
     },
   },
-
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -172,4 +175,3 @@ require('lazy').setup({
   'rcarriga/nvim-dap-ui'
 
 }, {})
-
