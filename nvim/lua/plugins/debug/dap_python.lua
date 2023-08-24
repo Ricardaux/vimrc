@@ -9,5 +9,4 @@ table.insert(require('dap').configurations.python, {
   -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
 })
 
-vim.keymap.set('n', '<leader>dt', function() require('dap-python').test_method() end, { desc = '[D]ebug [T]est' })
 vim.keymap.set('n', '<leader>df', function() require('dap-python').test_class() end, { desc = '[D]ebug Class' })
