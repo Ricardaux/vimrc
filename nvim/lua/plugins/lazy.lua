@@ -172,6 +172,7 @@ require('lazy').setup({
   -- DAP
   'mfussenegger/nvim-dap',
   'mfussenegger/nvim-dap-python',
+  'leoluz/nvim-dap-go',
   'rcarriga/nvim-dap-ui'
 
 }, {})
