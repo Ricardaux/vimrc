@@ -10,6 +10,7 @@ vim.cmd([[command! -nargs=1 Gco execute "Git checkout " . <q-args>]])
 vim.cmd([[command! -nargs=1 -complete=customlist,v:lua.list_branches Gsw execute "Git switch " . <q-args>]])
 vim.cmd([[command! -nargs=1 -complete=customlist,v:lua.list_branches Grb execute "Git rebase " . <q-args>]])
 vim.cmd([[command! -nargs=1 -complete=customlist,v:lua.list_branches Grbi execute "Git rebase -i --autosquash " . <q-args>]])
+vim.cmd([[command! -nargs=1 -complete=customlist,v:lua.list_branches Grh execute "Git reset " . <q-args>]])
 
 function _G.list_branches(arg_lead)
   local current_file_path = vim.fn.expand("%:p:h")
