@@ -7,7 +7,6 @@ vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() 
 vim.keymap.set('n', '<leader>dr', function() require('dap').restart() end, { desc = '[D]ebug [R]estart' })
 vim.keymap.set('n', '<leader>de', function() require('dap').terminate() end, { desc = '[D]ebug [E]nd' })
 
--- vim.keymap.set('n', '<leader>dt', function() require('dap-python').test_method() end, { desc = '[D]ebug [T]est' })
 vim.keymap.set('n', '<leader>dt', function()
   local filetype = vim.bo.filetype
   if filetype == 'python' then
