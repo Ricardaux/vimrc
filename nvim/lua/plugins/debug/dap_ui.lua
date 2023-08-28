@@ -12,4 +12,4 @@ require("dapui").setup({
         size = 40
       } }})
 vim.keymap.set('n', '<leader>du', function() require('dapui').open() end, { desc = '[D]ebug [U]i' })
-
+vim.keymap.set('v', '<leader>dw', require("dapui").eval, { desc = '[D]ebug [W]atch' })
