@@ -96,7 +96,7 @@ require('lazy').setup({
       on_attach = function(bufnr)
         vim.keymap.set('n', '<leader>hp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Go to [P]revious [H]unk' })
         vim.keymap.set('n', '<leader>hn', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Go to [N]ext [H]unk' })
-        vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
+        vim.keymap.set('n', '<leader>hv', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[H]unk [V]iew' })
         vim.keymap.set('n', '<leader>hs', require('gitsigns').stage_hunk,  {buffer = bufnr, desc = '[H]unk [S]tage' })
         vim.keymap.set('n', '<leader>hr', require('gitsigns').reset_hunk,  {buffer = bufnr, desc = '[H]unk [R]eset' })
         vim.keymap.set('n', '<leader>hb', function() require('gitsigns').blame_line{full=true} end, {buffer = bufnr, desc = 'Lines [B]lame' })
