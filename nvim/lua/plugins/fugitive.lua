@@ -10,6 +10,8 @@ vim.cmd([[command! Gpsup execute "!git push --set-upstream origin " . system('gi
 vim.cmd([[command! Glog Git log --oneline --decorate --graph]])
 vim.cmd([[command! Gsta Git stash push]])
 vim.cmd([[command! Gstp Git stash pop]])
+vim.cmd([[command! Grbc Git rebase --continue]])
+vim.cmd([[command! Grba Git rebase --abort]])
 vim.cmd([[command! -nargs=* Gc execute "Git commit -v " . <q-args>]])
 vim.cmd([[command! -nargs=1 Gco execute "Git checkout " . <q-args>]])
 vim.cmd([[command! -nargs=1 -complete=customlist,v:lua.list_branches Gsw execute "Git switch " . <q-args>]])
