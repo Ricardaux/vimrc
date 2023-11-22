@@ -50,8 +50,11 @@ require('lazy').setup({
     },
   },
   {
-    'jose-elias-alvarez/null-ls.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    'mfussenegger/nvim-lint',
+  },
+  {
+    'stevearc/conform.nvim',
+    opts = {},
   },
   {
     -- Autocompletion
