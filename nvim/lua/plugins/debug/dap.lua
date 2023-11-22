@@ -7,6 +7,9 @@ vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() 
 vim.keymap.set('n', '<leader>dr', function() require('dap').restart() end, { desc = '[D]ebug [R]estart' })
 vim.keymap.set('n', '<leader>de', function() require('dap').terminate() end, { desc = '[D]ebug [E]nd' })
 vim.keymap.set('n', '<leader>dm', function() require('dap').run_to_cursor() end, { desc = '[D]ebug to [M]arker' })
+vim.keymap.set('n', '<leader>dl', function() require('dap').run_last() end, { desc = '[D]ebug [L]ast' })
+vim.keymap.set('n', '<leader>dd', function() require('dap').disconnect() end, { desc = '[D]ebug [D]isconnect' })
+vim.keymap.set('n', '<leader>dv', function() require('dap').focus_frame() end, { desc = '[D]ebug [V]isit' })
 
 vim.keymap.set('n', '<leader>dt', function()
   local filetype = vim.bo.filetype
