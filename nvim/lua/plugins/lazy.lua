@@ -43,7 +43,7 @@ require('lazy').setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {}, tag = "legacy" },
+      { 'j-hui/fidget.nvim',       opts = {},    tag = "legacy" },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
@@ -76,16 +76,16 @@ require('lazy').setup({
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
     end
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  { 'folke/which-key.nvim',  opts = {} },
   {
-  --   -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    --   -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -97,13 +97,15 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = 'Go to [P]revious [H]unk' })
+        vim.keymap.set('n', '<leader>hp', require('gitsigns').prev_hunk,
+          { buffer = bufnr, desc = 'Go to [P]revious [H]unk' })
         vim.keymap.set('n', '<leader>hn', require('gitsigns').next_hunk, { buffer = bufnr, desc = 'Go to [N]ext [H]unk' })
         vim.keymap.set('n', '<leader>hv', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[H]unk [V]iew' })
-        vim.keymap.set('n', '<leader>hs', require('gitsigns').stage_hunk,  {buffer = bufnr, desc = '[H]unk [S]tage' })
-        vim.keymap.set('n', '<leader>hr', require('gitsigns').reset_hunk,  {buffer = bufnr, desc = '[H]unk [R]eset' })
-        vim.keymap.set('n', '<leader>hb', function() require('gitsigns').blame_line{full=true} end, {buffer = bufnr, desc = 'Lines [B]lame' })
-        vim.keymap.set('n', '<leader>hd', require('gitsigns').diffthis,  {buffer = bufnr, desc = '[H]unk [D]iff' })
+        vim.keymap.set('n', '<leader>hs', require('gitsigns').stage_hunk, { buffer = bufnr, desc = '[H]unk [S]tage' })
+        vim.keymap.set('n', '<leader>hr', require('gitsigns').reset_hunk, { buffer = bufnr, desc = '[H]unk [R]eset' })
+        vim.keymap.set('n', '<leader>hb', function() require('gitsigns').blame_line { full = true } end,
+          { buffer = bufnr, desc = 'Lines [B]lame' })
+        vim.keymap.set('n', '<leader>hd', require('gitsigns').diffthis, { buffer = bufnr, desc = '[H]unk [D]iff' })
       end,
     },
   },
@@ -129,7 +131,7 @@ require('lazy').setup({
         section_separators = '',
       },
       sections = {
-        lualine_c = {"%f%{(getbufinfo('%')[0].changed ? '[+]' : '')}"},
+        lualine_c = { "%f%{(getbufinfo('%')[0].changed ? '[+]' : '')}" },
       }
     },
   },
