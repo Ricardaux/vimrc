@@ -1,6 +1,6 @@
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]tatus' })
-vim.keymap.set('n', 'gh', "<cmd>diffget //2<CR>", { desc = '[G]it [S]tatus' })
-vim.keymap.set('n', 'gl',  "<cmd>diffget //3<CR>", { desc = '[G]it [S]tatus' })
+vim.keymap.set('n', 'gh', "<cmd>diffget //2<CR>", { desc = 'Choose left side of merge' })
+vim.keymap.set('n', 'gl',  "<cmd>diffget //3<CR>", { desc = 'Choose right side of merge' })
 vim.cmd([[command! Gci Git commit --amend -v]])
 vim.cmd([[command! Gcni Git commit --no-edit --amend -v]])
 vim.cmd([[command! Gp Git push]])
