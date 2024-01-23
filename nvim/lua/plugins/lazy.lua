@@ -50,11 +50,8 @@ require('lazy').setup({
     },
   },
   {
-    'mfussenegger/nvim-lint',
-  },
-  {
-    'stevearc/conform.nvim',
-    opts = {},
+    'nvimtools/none-ls.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {
     -- Autocompletion
