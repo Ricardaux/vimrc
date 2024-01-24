@@ -13,7 +13,7 @@ vim.o.mouse = ''
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
-vim.o.scrolloff = 10
+vim.o.scrolloff = 20
 
 -- Enable break indent
 vim.o.breakindent = true
