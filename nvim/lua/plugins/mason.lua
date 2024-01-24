@@ -50,16 +50,6 @@ end
 local servers = {
   -- clangd = {},
   -- gopls = {},
-  -- pyright = {
-  --   settings = {
-  --     python = {
-  --       formatting = {
-  --         provider = 'black',
-  --         lineLength = 120, -- Définit la longueur de ligne maximale à 120
-  --       },
-  --     },
-  --   },
-  -- },
   -- rust_analyzer = {},
   -- tsserver = {},
   lua_ls = {
