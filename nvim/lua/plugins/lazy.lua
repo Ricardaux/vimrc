@@ -169,7 +169,7 @@ require('lazy').setup({
   'mfussenegger/nvim-dap',
   'mfussenegger/nvim-dap-python',
   'leoluz/nvim-dap-go',
-  'rcarriga/nvim-dap-ui',
+  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
 
   {
     "smoka7/multicursors.nvim",
