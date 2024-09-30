@@ -25,6 +25,14 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-dispatch',
 
+  {
+    -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate',
+  },
 
   'vim-test/vim-test',
 
@@ -164,14 +172,6 @@ require('lazy').setup({
     end,
   },
 
-  {
-    -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
-  },
   -- DAP
   'mfussenegger/nvim-dap',
   'mfussenegger/nvim-dap-python',
