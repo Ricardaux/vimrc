@@ -25,9 +25,6 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-dispatch',
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
 
   'vim-test/vim-test',
 
