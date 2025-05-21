@@ -35,20 +35,41 @@ require('lazy').setup({
     },
 
     { "vim-test/vim-test" },
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "codymikol/neotest-kotlin",
+            "nvim-neotest/neotest-python",
+            "nvim-neotest/neotest-plenary",
+            "nvim-neotest/neotest-vim-test"
+        }
+    },
 
     -- NOTE: This is where your plugins related to LSP can be installed.
     --  The configuration is done below. Search for lspconfig to find it below.
+    -- {
+    --     -- LSP Configuration & Plugins
+    --     'neovim/nvim-lspconfig',
+    --     dependencies = {
+    --         -- Automatically install LSPs to stdpath for neovim
+    --         'mason-org/mason.nvim',
+    --         'mason-org/mason-lspconfig.nvim',
+    --
+    --         -- Useful status updates for LSP
+    --         -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+    --         { 'j-hui/fidget.nvim',       opts = {} },
+    --     },
+    -- },
     {
-        -- LSP Configuration & Plugins
-        'neovim/nvim-lspconfig',
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
         dependencies = {
-            -- Automatically install LSPs to stdpath for neovim
-            { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
-
-            -- Useful status updates for LSP
-            -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',       opts = {} },
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
         },
     },
     {
@@ -154,7 +175,6 @@ require('lazy').setup({
     -- Fuzzy Finder (files, lsp, etc)
     {
         'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
         dependencies = {
             'nvim-lua/plenary.nvim',
             'sharkdp/fd',
@@ -180,23 +200,6 @@ require('lazy').setup({
     'leoluz/nvim-dap-go',
     { "rcarriga/nvim-dap-ui",  dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
-    {
-        "smoka7/multicursors.nvim",
-        event = "VeryLazy",
-        dependencies = {
-            'smoka7/hydra.nvim',
-        },
-        opts = {},
-        cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
-        keys = {
-            {
-                mode = { 'v', 'n' },
-                '<Leader>m',
-                '<cmd>MCstart<cr>',
-                desc = 'Create a selection for selected text or word under the cursor',
-            },
-        },
-    },
     {
         "vhyrro/luarocks.nvim",
         priority = 1000,

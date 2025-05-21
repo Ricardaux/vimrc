@@ -4,7 +4,7 @@ table.insert(require('dap').configurations.python, {
   type = 'python',
   request = 'attach',
   name = 'Connector',
-  port = 1234
+  port = 2143
 })
 
 vim.keymap.set('n', '<leader>df', function() require('dap-python').test_class() end, { desc = '[D]ebug Class' })
